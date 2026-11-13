@@ -1,0 +1,17 @@
+[project]
+name = "voiceclone"
+version = "0.1.0"
+description = "Local, free voice cloning on Apple Silicon using Chatterbox"
+requires-python = "==3.11.*"
+dependencies = [
+    "chatterbox-tts==0.1.7",
+    "setuptools<81",  # resemble-perth (watermarker) imports pkg_resources, removed in newer setuptools
+]
+
+[project.scripts]
+voiceclone = "voiceclone.cli:main"
+voiceclone-ui = "voiceclone.app:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
